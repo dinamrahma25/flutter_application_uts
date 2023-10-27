@@ -1,56 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_uts/page/HomePage.dart';
+import 'package:flutter_application_uts/page/PendingPage.dart';
 
-void main() {
-  runApp(const MyHomePage());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            // on pressed code here
-          },
-          backgroundColor: Colors.red,
-          child: const Icon(Icons.thumb_up),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+      routes: {
+        "/": (context) => HomePage(
+          
         ),
-      ),
+        "PendingPage": (context) => PendingPage(),
+      },
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: const Drawer(),
-      appBar: AppBar(
-        actions: [
-          const Icon(Icons.search),
-          const SizedBox(
-            width: 10,
-          )
-        ],
-        elevation: 3.0,
-        centerTitle: true,
-        title: const Text(
-          "",
-          style: const TextStyle(
-            fontSize: 25,
-          ),
-        ),
-        backgroundColor: Colors.red,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Container(),
-      ),
-    );
-  }
-}
+
